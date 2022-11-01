@@ -30,16 +30,16 @@ namespace Advocacia.Classes
             DataTable dt = new DataTable();
             try
             {
-                using (var cmd = ConexaoBanco().CreateCommand()) // Rotina que engloba todo o conteúdo. Como se fosse um container
-                                                                 // Chama o banco ConexaoBanco e Retorna do banco o método CreateCommand
-                {
-                    cmd.CommandText = "SELECT * FROM Lawyers";
-                    da = new SQLiteDataAdapter(cmd.CommandText, ConexaoBanco()); // Criar o DataAdapter pois ele precisa do comando SQL e da ConexaoBanco passar 2 comando pra ele, comando que a gente quer utilizar e a conexao 
-                    da.Fill(dt); // preencer o DataTable com essa informações
-                    ConexaoBanco().Close();
-                    return dt;
-                    // Retorna todos os usuários do nosso sistema
-                }
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();        // Rotina que engloba todo o conteúdo. Como se fosse um container
+                                                       // Chama o banco ConexaoBanco e Retorna do banco o método CreateCommand
+                cmd.CommandText = "SELECT * FROM Lawyers";
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon); // Criar o DataAdapter pois ele precisa do comando SQL e da ConexaoBanco passar 2 comando pra ele, comando que a gente quer utilizar e a conexao 
+                da.Fill(dt); // preencer o DataTable com essas informações, atualiza as linhas no DataSet
+                vcon.Close();
+                return dt;
+                // Retorna todos os usuários do nosso sistema
+
             }
             catch (Exception ex)
             {
@@ -54,23 +54,29 @@ namespace Advocacia.Classes
             DataTable dt = new DataTable();
             try
             {
-                using (var cmd = ConexaoBanco().CreateCommand())
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = sql;
+                da = new SQLiteDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+                // Retorna todos os usuários do nosso sistema
 
-                {
-                    cmd.CommandText = sql;
-                    da = new SQLiteDataAdapter(cmd.CommandText, ConexaoBanco());
-                    da.Fill(dt);
-                    ConexaoBanco().Close();
-                    return dt;
-                    // Retorna todos os usuários do nosso sistema
-                }
             }
             catch (Exception ex)
             {
-                ConexaoBanco().Close();
                 throw ex;
             }
         }
 
+
+        // Funções do form Clients
+
+        public static void NovoCliente(Clients c)
+        { 
+            
+        }
+
     }
-} 
+}

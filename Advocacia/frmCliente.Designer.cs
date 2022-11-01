@@ -35,6 +35,7 @@ namespace Advocacia
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabDados = new System.Windows.Forms.TabPage();
+            this.dgv_Clientes = new System.Windows.Forms.DataGridView();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblCidade = new System.Windows.Forms.Label();
@@ -64,13 +65,14 @@ namespace Advocacia
             this.tabListagem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabDados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Clientes)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCliente
             // 
             this.tabCliente.Controls.Add(this.tabListagem);
             this.tabCliente.Controls.Add(this.tabDados);
-            this.tabCliente.Location = new System.Drawing.Point(12, 12);
+            this.tabCliente.Location = new System.Drawing.Point(14, 12);
             this.tabCliente.Name = "tabCliente";
             this.tabCliente.SelectedIndex = 0;
             this.tabCliente.Size = new System.Drawing.Size(776, 426);
@@ -116,6 +118,7 @@ namespace Advocacia
             // 
             // tabDados
             // 
+            this.tabDados.Controls.Add(this.dgv_Clientes);
             this.tabDados.Controls.Add(this.cboEstado);
             this.tabDados.Controls.Add(this.lblEstado);
             this.tabDados.Controls.Add(this.lblCidade);
@@ -148,6 +151,18 @@ namespace Advocacia
             this.tabDados.TabIndex = 1;
             this.tabDados.Text = "Dados";
             this.tabDados.UseVisualStyleBackColor = true;
+            // 
+            // dgv_Clientes
+            // 
+            this.dgv_Clientes.AllowUserToAddRows = false;
+            this.dgv_Clientes.AllowUserToDeleteRows = false;
+            this.dgv_Clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Clientes.Location = new System.Drawing.Point(24, 203);
+            this.dgv_Clientes.Name = "dgv_Clientes";
+            this.dgv_Clientes.ReadOnly = true;
+            this.dgv_Clientes.RowTemplate.Height = 25;
+            this.dgv_Clientes.Size = new System.Drawing.Size(657, 150);
+            this.dgv_Clientes.TabIndex = 33;
             // 
             // cboEstado
             // 
@@ -318,7 +333,8 @@ namespace Advocacia
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(525, 369);
+            this.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNovo.Location = new System.Drawing.Point(25, 369);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
             this.btnNovo.TabIndex = 12;
@@ -328,7 +344,8 @@ namespace Advocacia
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(687, 369);
+            this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVoltar.Location = new System.Drawing.Point(187, 369);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(75, 23);
             this.btnVoltar.TabIndex = 11;
@@ -338,7 +355,8 @@ namespace Advocacia
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(606, 369);
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.Location = new System.Drawing.Point(106, 369);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 10;
@@ -395,6 +413,8 @@ namespace Advocacia
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabCliente);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cliente";
@@ -403,6 +423,7 @@ namespace Advocacia
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabDados.ResumeLayout(false);
             this.tabDados.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Clientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -440,5 +461,6 @@ namespace Advocacia
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Label lblCidade;
         private System.Windows.Forms.TextBox txtCidade;
+        private System.Windows.Forms.DataGridView dgv_Clientes;
     }
 }

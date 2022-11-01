@@ -1,6 +1,8 @@
 ﻿using Advocacia.Models;
 using System;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Threading;
 
 namespace Advocacia
 {
@@ -45,6 +47,19 @@ namespace Advocacia
         {
             try
             {
+                Client client = new Client();
+                client.Name = txtNome.Text;
+                client.RG = txtRG.Text;
+                client.Email = txtEmail.Text;
+                client.Phone = mktTelefone.Text;
+                client.Address_Code = mktCEP.Text;
+                client.Address = txtEndereco.Text;
+                client.District = txtBairro.Text;
+                client.City = txtCidade.Text;
+                // numero e data de nascimento estão faltando
+
+
+
                 if (Validacao() == true)
                 {
                     Salvar();
