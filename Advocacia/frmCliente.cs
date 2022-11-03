@@ -3,6 +3,7 @@ using System;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
+using Advocacia.Classes.Controllers;
 
 namespace Advocacia
 {
@@ -11,6 +12,7 @@ namespace Advocacia
         #region Variaveis
 
         Client client = new Client();
+        ClientControlller clientControlller = new ClientControlller();
 
         #endregion
 
@@ -47,18 +49,6 @@ namespace Advocacia
         {
             try
             {
-                Client client = new Client();
-                client.Name = txtNome.Text;
-                client.RG = txtRG.Text;
-                client.Email = txtEmail.Text;
-                client.Phone = mktTelefone.Text;
-                client.Address_Code = mktCEP.Text;
-                client.Address = txtEndereco.Text;
-                client.District = txtBairro.Text;
-                client.City = txtCidade.Text;
-                // numero e data de nascimento estão faltando
-
-
 
                 if (Validacao() == true)
                 {
@@ -155,7 +145,7 @@ namespace Advocacia
                 client.Birth_Date = Convert.ToDateTime(mktDataNascimento.Text);
                 client.Email = txtEmail.Text;
                 client.Phone = mktTelefone.Text;
-                client.Id = (long)btnSalvar.Tag;
+                //client.Id = (long)btnSalvar.Tag;
                 client.Address_Code = mktCEP.Text;
                 client.Address = txtEndereco.Text;
                 client.Number = Convert.ToInt32(txtNumero.Text);
@@ -164,13 +154,13 @@ namespace Advocacia
                 client.State = cboEstado.SelectedValue.ToString();
                 
                 // Se nao tiver o código, inserir o novo cliente
-                if (btnSalvar.Tag != null)
+                if (btnSalvar.Tag == null)
                 {
-                    btnSalvar.Tag = client.Insert(client);
+                    btnSalvar.Tag = clientControlller.Insert(client);
                 }
                 else
                 {
-                    client.Update(client);
+                    clientControlller.Update(client);
                 }
             }
             catch (Exception)
