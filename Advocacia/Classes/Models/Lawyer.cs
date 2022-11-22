@@ -7,7 +7,7 @@ namespace Advocacia.Models
     public class Lawyer : Addresses
     {
         [Key]
-        public long Id { get; set; }
+        public long? Id { get; set; }
 
         [ForeignKey("Company")]
         public long Id_Company { get; set; }

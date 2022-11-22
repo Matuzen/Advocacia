@@ -31,18 +31,18 @@ namespace Advocacia
         {
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblSenha = new System.Windows.Forms.Label();
-            this.tb_username = new System.Windows.Forms.TextBox();
-            this.tb_senha = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
             this.btnEntrar = new System.Windows.Forms.Button();
-            this.lbl_EsqueciASenha = new System.Windows.Forms.LinkLabel();
+            this.lblEsqueciSenha = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pn_Login = new System.Windows.Forms.Panel();
-            this.lbl_NomeUsuario = new System.Windows.Forms.Label();
-            this.lbl_Usuario = new System.Windows.Forms.Label();
-            this.pb_Login = new System.Windows.Forms.PictureBox();
-            this.btn_Sair = new System.Windows.Forms.Button();
-            this.pn_Login.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Login)).BeginInit();
+            this.pnLogin = new System.Windows.Forms.Panel();
+            this.lblNomeUsuario = new System.Windows.Forms.Label();
+            this.lblUsuarioTexto = new System.Windows.Forms.Label();
+            this.pbLogin = new System.Windows.Forms.PictureBox();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.pnLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -63,20 +63,20 @@ namespace Advocacia
             this.lblSenha.TabIndex = 1;
             this.lblSenha.Text = "Senha";
             // 
-            // tb_username
+            // txtUsuario
             // 
-            this.tb_username.Location = new System.Drawing.Point(25, 70);
-            this.tb_username.Name = "tb_username";
-            this.tb_username.Size = new System.Drawing.Size(221, 23);
-            this.tb_username.TabIndex = 2;
+            this.txtUsuario.Location = new System.Drawing.Point(25, 70);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(221, 23);
+            this.txtUsuario.TabIndex = 2;
             // 
-            // tb_senha
+            // txtSenha
             // 
-            this.tb_senha.Location = new System.Drawing.Point(25, 129);
-            this.tb_senha.Name = "tb_senha";
-            this.tb_senha.Size = new System.Drawing.Size(221, 23);
-            this.tb_senha.TabIndex = 3;
-            this.tb_senha.UseSystemPasswordChar = true;
+            this.txtSenha.Location = new System.Drawing.Point(25, 129);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(221, 23);
+            this.txtSenha.TabIndex = 3;
+            this.txtSenha.UseSystemPasswordChar = true;
             // 
             // btnEntrar
             // 
@@ -88,15 +88,15 @@ namespace Advocacia
             this.btnEntrar.UseVisualStyleBackColor = true;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
-            // lbl_EsqueciASenha
+            // lblEsqueciSenha
             // 
-            this.lbl_EsqueciASenha.AutoSize = true;
-            this.lbl_EsqueciASenha.Location = new System.Drawing.Point(88, 226);
-            this.lbl_EsqueciASenha.Name = "lbl_EsqueciASenha";
-            this.lbl_EsqueciASenha.Size = new System.Drawing.Size(90, 15);
-            this.lbl_EsqueciASenha.TabIndex = 5;
-            this.lbl_EsqueciASenha.TabStop = true;
-            this.lbl_EsqueciASenha.Text = "Esqueci a senha";
+            this.lblEsqueciSenha.AutoSize = true;
+            this.lblEsqueciSenha.Location = new System.Drawing.Point(88, 226);
+            this.lblEsqueciSenha.Name = "lblEsqueciSenha";
+            this.lblEsqueciSenha.Size = new System.Drawing.Size(90, 15);
+            this.lblEsqueciSenha.TabIndex = 5;
+            this.lblEsqueciSenha.TabStop = true;
+            this.lblEsqueciSenha.Text = "Esqueci a senha";
             // 
             // label1
             // 
@@ -107,68 +107,68 @@ namespace Advocacia
             this.label1.TabIndex = 6;
             this.label1.Text = "Top Service Advocacia";
             // 
-            // pn_Login
+            // pnLogin
             // 
-            this.pn_Login.BackColor = System.Drawing.Color.LightGreen;
-            this.pn_Login.Controls.Add(this.lbl_NomeUsuario);
-            this.pn_Login.Controls.Add(this.lbl_Usuario);
-            this.pn_Login.Controls.Add(this.pb_Login);
-            this.pn_Login.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pn_Login.Location = new System.Drawing.Point(0, 263);
-            this.pn_Login.Name = "pn_Login";
-            this.pn_Login.Size = new System.Drawing.Size(309, 46);
-            this.pn_Login.TabIndex = 7;
+            this.pnLogin.BackColor = System.Drawing.Color.LightGreen;
+            this.pnLogin.Controls.Add(this.lblNomeUsuario);
+            this.pnLogin.Controls.Add(this.lblUsuarioTexto);
+            this.pnLogin.Controls.Add(this.pbLogin);
+            this.pnLogin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnLogin.Location = new System.Drawing.Point(0, 263);
+            this.pnLogin.Name = "pnLogin";
+            this.pnLogin.Size = new System.Drawing.Size(309, 46);
+            this.pnLogin.TabIndex = 7;
             // 
-            // lbl_NomeUsuario
+            // lblNomeUsuario
             // 
-            this.lbl_NomeUsuario.AutoSize = true;
-            this.lbl_NomeUsuario.Location = new System.Drawing.Point(122, 19);
-            this.lbl_NomeUsuario.Name = "lbl_NomeUsuario";
-            this.lbl_NomeUsuario.Size = new System.Drawing.Size(22, 15);
-            this.lbl_NomeUsuario.TabIndex = 2;
-            this.lbl_NomeUsuario.Text = "---";
+            this.lblNomeUsuario.AutoSize = true;
+            this.lblNomeUsuario.Location = new System.Drawing.Point(122, 19);
+            this.lblNomeUsuario.Name = "lblNomeUsuario";
+            this.lblNomeUsuario.Size = new System.Drawing.Size(22, 15);
+            this.lblNomeUsuario.TabIndex = 2;
+            this.lblNomeUsuario.Text = "---";
             // 
-            // lbl_Usuario
+            // lblUsuarioTexto
             // 
-            this.lbl_Usuario.AutoSize = true;
-            this.lbl_Usuario.Location = new System.Drawing.Point(66, 19);
-            this.lbl_Usuario.Name = "lbl_Usuario";
-            this.lbl_Usuario.Size = new System.Drawing.Size(50, 15);
-            this.lbl_Usuario.TabIndex = 1;
-            this.lbl_Usuario.Text = "Usuário:";
+            this.lblUsuarioTexto.AutoSize = true;
+            this.lblUsuarioTexto.Location = new System.Drawing.Point(66, 19);
+            this.lblUsuarioTexto.Name = "lblUsuarioTexto";
+            this.lblUsuarioTexto.Size = new System.Drawing.Size(50, 15);
+            this.lblUsuarioTexto.TabIndex = 1;
+            this.lblUsuarioTexto.Text = "Usuário:";
             // 
-            // pb_Login
+            // pbLogin
             // 
-            this.pb_Login.Image = global::Advocacia.Properties.Resources.locked_48;
-            this.pb_Login.Location = new System.Drawing.Point(12, 3);
-            this.pb_Login.Name = "pb_Login";
-            this.pb_Login.Size = new System.Drawing.Size(38, 40);
-            this.pb_Login.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_Login.TabIndex = 0;
-            this.pb_Login.TabStop = false;
+            this.pbLogin.Image = global::Advocacia.Properties.Resources.locked_48;
+            this.pbLogin.Location = new System.Drawing.Point(12, 3);
+            this.pbLogin.Name = "pbLogin";
+            this.pbLogin.Size = new System.Drawing.Size(38, 40);
+            this.pbLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogin.TabIndex = 0;
+            this.pbLogin.TabStop = false;
             // 
-            // btn_Sair
+            // btnSair
             // 
-            this.btn_Sair.Location = new System.Drawing.Point(133, 174);
-            this.btn_Sair.Name = "btn_Sair";
-            this.btn_Sair.Size = new System.Drawing.Size(75, 23);
-            this.btn_Sair.TabIndex = 8;
-            this.btn_Sair.Text = "Sair";
-            this.btn_Sair.UseVisualStyleBackColor = true;
-            this.btn_Sair.Click += new System.EventHandler(this.btn_Sair_Click);
+            this.btnSair.Location = new System.Drawing.Point(133, 174);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.TabIndex = 8;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(309, 309);
-            this.Controls.Add(this.btn_Sair);
-            this.Controls.Add(this.pn_Login);
+            this.Controls.Add(this.btnSair);
+            this.Controls.Add(this.pnLogin);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbl_EsqueciASenha);
+            this.Controls.Add(this.lblEsqueciSenha);
             this.Controls.Add(this.btnEntrar);
-            this.Controls.Add(this.tb_senha);
-            this.Controls.Add(this.tb_username);
+            this.Controls.Add(this.txtSenha);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.lblUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -177,9 +177,9 @@ namespace Advocacia
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.pn_Login.ResumeLayout(false);
-            this.pn_Login.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Login)).EndInit();
+            this.pnLogin.ResumeLayout(false);
+            this.pnLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,15 +189,15 @@ namespace Advocacia
 
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblSenha;
-        private System.Windows.Forms.TextBox tb_username;
-        private System.Windows.Forms.TextBox tb_senha;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Button btnEntrar;
-        private System.Windows.Forms.LinkLabel lbl_EsqueciASenha;
+        private System.Windows.Forms.LinkLabel lblEsqueciSenha;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel pn_Login;
-        public System.Windows.Forms.PictureBox pb_Login;
-        private System.Windows.Forms.Button btn_Sair;
-        public System.Windows.Forms.Label lbl_NomeUsuario;
-        public System.Windows.Forms.Label lbl_Usuario;
+        private System.Windows.Forms.Panel pnLogin;
+        public System.Windows.Forms.PictureBox pbLogin;
+        private System.Windows.Forms.Button btnSair;
+        public System.Windows.Forms.Label lblNomeUsuario;
+        public System.Windows.Forms.Label lblUsuarioTexto;
     }
 }

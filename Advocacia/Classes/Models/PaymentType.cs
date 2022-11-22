@@ -9,7 +9,7 @@ namespace Advocacia.Models
     public class PaymentType
     {
         [Key]
-        public long Id { get; set; }
+        public long? Id { get; set; }
 
         [Required]
         [MaxLength(256)]

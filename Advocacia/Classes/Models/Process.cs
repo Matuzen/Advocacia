@@ -7,7 +7,7 @@ namespace Advocacia.Models
     public class Process
     {
         [Key]
-        public long Id { get; set; }
+        public long? Id { get; set; }
 
         [ForeignKey("Lawyers")]
         public long Id_Lawyer { get; set; }

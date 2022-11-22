@@ -33,9 +33,8 @@ namespace Advocacia
             this.tabListagem = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grdListagem = new System.Windows.Forms.DataGridView();
             this.tabDados = new System.Windows.Forms.TabPage();
-            this.dgv_Clientes = new System.Windows.Forms.DataGridView();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblCidade = new System.Windows.Forms.Label();
@@ -47,8 +46,8 @@ namespace Advocacia
             this.lblEndereco = new System.Windows.Forms.Label();
             this.txtEndereco = new System.Windows.Forms.TextBox();
             this.lblCEP = new System.Windows.Forms.Label();
-            this.mktCEP = new System.Windows.Forms.MaskedTextBox();
-            this.mktTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.lblTelefone = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -57,15 +56,37 @@ namespace Advocacia
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.lblDataNascimento = new System.Windows.Forms.Label();
-            this.mktDataNascimento = new System.Windows.Forms.MaskedTextBox();
+            this.txtDataNascimento = new System.Windows.Forms.MaskedTextBox();
             this.lblRG = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtTelefoneFiltro = new System.Windows.Forms.MaskedTextBox();
+            this.lblTelefoneFiltro = new System.Windows.Forms.Label();
+            this.txtRGFiltro = new System.Windows.Forms.MaskedTextBox();
+            this.lblRGFiltro = new System.Windows.Forms.Label();
+            this.lblNomeFiltro = new System.Windows.Forms.Label();
+            this.txtNomeFiltro = new System.Windows.Forms.TextBox();
+            this.btnNovoRegistro = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCliente.SuspendLayout();
             this.tabListagem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdListagem)).BeginInit();
             this.tabDados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Clientes)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCliente
@@ -82,7 +103,7 @@ namespace Advocacia
             // 
             this.tabListagem.Controls.Add(this.groupBox2);
             this.tabListagem.Controls.Add(this.groupBox1);
-            this.tabListagem.Controls.Add(this.dataGridView1);
+            this.tabListagem.Controls.Add(this.grdListagem);
             this.tabListagem.Location = new System.Drawing.Point(4, 24);
             this.tabListagem.Name = "tabListagem";
             this.tabListagem.Padding = new System.Windows.Forms.Padding(3);
@@ -93,32 +114,53 @@ namespace Advocacia
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(3, 6);
+            this.groupBox2.Controls.Add(this.btnFiltrar);
+            this.groupBox2.Controls.Add(this.txtTelefoneFiltro);
+            this.groupBox2.Controls.Add(this.lblTelefoneFiltro);
+            this.groupBox2.Controls.Add(this.txtRGFiltro);
+            this.groupBox2.Controls.Add(this.lblRGFiltro);
+            this.groupBox2.Controls.Add(this.lblNomeFiltro);
+            this.groupBox2.Controls.Add(this.txtNomeFiltro);
+            this.groupBox2.Location = new System.Drawing.Point(3, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(759, 76);
+            this.groupBox2.Size = new System.Drawing.Size(759, 82);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnNovoRegistro);
+            this.groupBox1.Controls.Add(this.btnSair);
+            this.groupBox1.Controls.Add(this.btnExcluir);
             this.groupBox1.Location = new System.Drawing.Point(6, 325);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(759, 67);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // dataGridView1
+            // grdListagem
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 88);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(756, 231);
-            this.dataGridView1.TabIndex = 0;
+            this.grdListagem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdListagem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.check,
+            this.nome,
+            this.rg,
+            this.telefone,
+            this.email,
+            this.endereco,
+            this.numero,
+            this.bairro,
+            this.cidade,
+            this.uf,
+            this.id});
+            this.grdListagem.Location = new System.Drawing.Point(6, 88);
+            this.grdListagem.Name = "grdListagem";
+            this.grdListagem.RowTemplate.Height = 25;
+            this.grdListagem.Size = new System.Drawing.Size(756, 231);
+            this.grdListagem.TabIndex = 0;
             // 
             // tabDados
             // 
-            this.tabDados.Controls.Add(this.dgv_Clientes);
             this.tabDados.Controls.Add(this.cboEstado);
             this.tabDados.Controls.Add(this.lblEstado);
             this.tabDados.Controls.Add(this.lblCidade);
@@ -130,8 +172,8 @@ namespace Advocacia
             this.tabDados.Controls.Add(this.lblEndereco);
             this.tabDados.Controls.Add(this.txtEndereco);
             this.tabDados.Controls.Add(this.lblCEP);
-            this.tabDados.Controls.Add(this.mktCEP);
-            this.tabDados.Controls.Add(this.mktTelefone);
+            this.tabDados.Controls.Add(this.txtCEP);
+            this.tabDados.Controls.Add(this.txtTelefone);
             this.tabDados.Controls.Add(this.lblTelefone);
             this.tabDados.Controls.Add(this.lblEmail);
             this.tabDados.Controls.Add(this.txtEmail);
@@ -140,7 +182,7 @@ namespace Advocacia
             this.tabDados.Controls.Add(this.btnVoltar);
             this.tabDados.Controls.Add(this.btnSalvar);
             this.tabDados.Controls.Add(this.lblDataNascimento);
-            this.tabDados.Controls.Add(this.mktDataNascimento);
+            this.tabDados.Controls.Add(this.txtDataNascimento);
             this.tabDados.Controls.Add(this.lblRG);
             this.tabDados.Controls.Add(this.lblNome);
             this.tabDados.Controls.Add(this.txtNome);
@@ -151,18 +193,6 @@ namespace Advocacia
             this.tabDados.TabIndex = 1;
             this.tabDados.Text = "Dados";
             this.tabDados.UseVisualStyleBackColor = true;
-            // 
-            // dgv_Clientes
-            // 
-            this.dgv_Clientes.AllowUserToAddRows = false;
-            this.dgv_Clientes.AllowUserToDeleteRows = false;
-            this.dgv_Clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Clientes.Location = new System.Drawing.Point(24, 203);
-            this.dgv_Clientes.Name = "dgv_Clientes";
-            this.dgv_Clientes.ReadOnly = true;
-            this.dgv_Clientes.RowTemplate.Height = 25;
-            this.dgv_Clientes.Size = new System.Drawing.Size(657, 150);
-            this.dgv_Clientes.TabIndex = 33;
             // 
             // cboEstado
             // 
@@ -195,7 +225,7 @@ namespace Advocacia
             "SE",
             "TO",
             "DF"});
-            this.cboEstado.Location = new System.Drawing.Point(161, 161);
+            this.cboEstado.Location = new System.Drawing.Point(150, 153);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(99, 23);
             this.cboEstado.TabIndex = 32;
@@ -203,7 +233,7 @@ namespace Advocacia
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(161, 143);
+            this.lblEstado.Location = new System.Drawing.Point(150, 135);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(42, 15);
             this.lblEstado.TabIndex = 31;
@@ -212,7 +242,7 @@ namespace Advocacia
             // lblCidade
             // 
             this.lblCidade.AutoSize = true;
-            this.lblCidade.Location = new System.Drawing.Point(24, 143);
+            this.lblCidade.Location = new System.Drawing.Point(13, 135);
             this.lblCidade.Name = "lblCidade";
             this.lblCidade.Size = new System.Drawing.Size(44, 15);
             this.lblCidade.TabIndex = 29;
@@ -220,7 +250,7 @@ namespace Advocacia
             // 
             // txtCidade
             // 
-            this.txtCidade.Location = new System.Drawing.Point(24, 161);
+            this.txtCidade.Location = new System.Drawing.Point(13, 153);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(131, 23);
             this.txtCidade.TabIndex = 28;
@@ -228,7 +258,7 @@ namespace Advocacia
             // lblBairro
             // 
             this.lblBairro.AutoSize = true;
-            this.lblBairro.Location = new System.Drawing.Point(550, 74);
+            this.lblBairro.Location = new System.Drawing.Point(539, 66);
             this.lblBairro.Name = "lblBairro";
             this.lblBairro.Size = new System.Drawing.Size(38, 15);
             this.lblBairro.TabIndex = 27;
@@ -236,14 +266,14 @@ namespace Advocacia
             // 
             // txtBairro
             // 
-            this.txtBairro.Location = new System.Drawing.Point(550, 92);
+            this.txtBairro.Location = new System.Drawing.Point(539, 84);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(131, 23);
             this.txtBairro.TabIndex = 26;
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(492, 92);
+            this.txtNumero.Location = new System.Drawing.Point(481, 84);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(48, 23);
             this.txtNumero.TabIndex = 25;
@@ -251,7 +281,7 @@ namespace Advocacia
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(489, 74);
+            this.lblNumero.Location = new System.Drawing.Point(478, 66);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(51, 15);
             this.lblNumero.TabIndex = 24;
@@ -260,7 +290,7 @@ namespace Advocacia
             // lblEndereco
             // 
             this.lblEndereco.AutoSize = true;
-            this.lblEndereco.Location = new System.Drawing.Point(264, 74);
+            this.lblEndereco.Location = new System.Drawing.Point(253, 66);
             this.lblEndereco.Name = "lblEndereco";
             this.lblEndereco.Size = new System.Drawing.Size(56, 15);
             this.lblEndereco.TabIndex = 23;
@@ -268,7 +298,7 @@ namespace Advocacia
             // 
             // txtEndereco
             // 
-            this.txtEndereco.Location = new System.Drawing.Point(264, 92);
+            this.txtEndereco.Location = new System.Drawing.Point(253, 84);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(222, 23);
             this.txtEndereco.TabIndex = 22;
@@ -276,33 +306,32 @@ namespace Advocacia
             // lblCEP
             // 
             this.lblCEP.AutoSize = true;
-            this.lblCEP.Location = new System.Drawing.Point(144, 74);
+            this.lblCEP.Location = new System.Drawing.Point(133, 66);
             this.lblCEP.Name = "lblCEP";
             this.lblCEP.Size = new System.Drawing.Size(28, 15);
             this.lblCEP.TabIndex = 21;
             this.lblCEP.Text = "CEP";
             // 
-            // mktCEP
+            // txtCEP
             // 
-            this.mktCEP.Location = new System.Drawing.Point(144, 92);
-            this.mktCEP.Mask = "00000-000";
-            this.mktCEP.Name = "mktCEP";
-            this.mktCEP.Size = new System.Drawing.Size(114, 23);
-            this.mktCEP.TabIndex = 20;
-            this.mktCEP.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            this.txtCEP.Location = new System.Drawing.Point(133, 84);
+            this.txtCEP.Mask = "00000-000";
+            this.txtCEP.Name = "txtCEP";
+            this.txtCEP.Size = new System.Drawing.Size(114, 23);
+            this.txtCEP.TabIndex = 20;
             // 
-            // mktTelefone
+            // txtTelefone
             // 
-            this.mktTelefone.Location = new System.Drawing.Point(24, 92);
-            this.mktTelefone.Mask = "(999) 000-0000";
-            this.mktTelefone.Name = "mktTelefone";
-            this.mktTelefone.Size = new System.Drawing.Size(114, 23);
-            this.mktTelefone.TabIndex = 19;
+            this.txtTelefone.Location = new System.Drawing.Point(13, 84);
+            this.txtTelefone.Mask = "(999) 000-0000";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(114, 23);
+            this.txtTelefone.TabIndex = 19;
             // 
             // lblTelefone
             // 
             this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(24, 74);
+            this.lblTelefone.Location = new System.Drawing.Point(13, 66);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(51, 15);
             this.lblTelefone.TabIndex = 18;
@@ -311,7 +340,7 @@ namespace Advocacia
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(478, 16);
+            this.lblEmail.Location = new System.Drawing.Point(467, 8);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(36, 15);
             this.lblEmail.TabIndex = 16;
@@ -319,14 +348,14 @@ namespace Advocacia
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(478, 34);
+            this.txtEmail.Location = new System.Drawing.Point(467, 26);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(203, 23);
             this.txtEmail.TabIndex = 15;
             // 
             // txtRG
             // 
-            this.txtRG.Location = new System.Drawing.Point(252, 34);
+            this.txtRG.Location = new System.Drawing.Point(241, 26);
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(100, 23);
             this.txtRG.TabIndex = 14;
@@ -334,7 +363,7 @@ namespace Advocacia
             // btnNovo
             // 
             this.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNovo.Location = new System.Drawing.Point(25, 369);
+            this.btnNovo.Location = new System.Drawing.Point(525, 359);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
             this.btnNovo.TabIndex = 12;
@@ -345,7 +374,7 @@ namespace Advocacia
             // btnVoltar
             // 
             this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVoltar.Location = new System.Drawing.Point(187, 369);
+            this.btnVoltar.Location = new System.Drawing.Point(687, 359);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(75, 23);
             this.btnVoltar.TabIndex = 11;
@@ -356,7 +385,7 @@ namespace Advocacia
             // btnSalvar
             // 
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalvar.Location = new System.Drawing.Point(106, 369);
+            this.btnSalvar.Location = new System.Drawing.Point(606, 359);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 10;
@@ -367,25 +396,25 @@ namespace Advocacia
             // lblDataNascimento
             // 
             this.lblDataNascimento.AutoSize = true;
-            this.lblDataNascimento.Location = new System.Drawing.Point(358, 16);
+            this.lblDataNascimento.Location = new System.Drawing.Point(347, 8);
             this.lblDataNascimento.Name = "lblDataNascimento";
             this.lblDataNascimento.Size = new System.Drawing.Size(114, 15);
             this.lblDataNascimento.TabIndex = 9;
             this.lblDataNascimento.Text = "Data de Nascimento";
             // 
-            // mktDataNascimento
+            // txtDataNascimento
             // 
-            this.mktDataNascimento.Location = new System.Drawing.Point(358, 34);
-            this.mktDataNascimento.Mask = "00/00/0000";
-            this.mktDataNascimento.Name = "mktDataNascimento";
-            this.mktDataNascimento.Size = new System.Drawing.Size(114, 23);
-            this.mktDataNascimento.TabIndex = 8;
-            this.mktDataNascimento.ValidatingType = typeof(System.DateTime);
+            this.txtDataNascimento.Location = new System.Drawing.Point(347, 26);
+            this.txtDataNascimento.Mask = "00/00/0000";
+            this.txtDataNascimento.Name = "txtDataNascimento";
+            this.txtDataNascimento.Size = new System.Drawing.Size(114, 23);
+            this.txtDataNascimento.TabIndex = 8;
+            this.txtDataNascimento.ValidatingType = typeof(System.DateTime);
             // 
             // lblRG
             // 
             this.lblRG.AutoSize = true;
-            this.lblRG.Location = new System.Drawing.Point(249, 16);
+            this.lblRG.Location = new System.Drawing.Point(238, 8);
             this.lblRG.Name = "lblRG";
             this.lblRG.Size = new System.Drawing.Size(22, 15);
             this.lblRG.TabIndex = 5;
@@ -394,7 +423,7 @@ namespace Advocacia
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(24, 16);
+            this.lblNome.Location = new System.Drawing.Point(13, 8);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(40, 15);
             this.lblNome.TabIndex = 1;
@@ -402,10 +431,158 @@ namespace Advocacia
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(24, 34);
+            this.txtNome.Location = new System.Drawing.Point(13, 26);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(222, 23);
             this.txtNome.TabIndex = 0;
+            // 
+            // txtTelefoneFiltro
+            // 
+            this.txtTelefoneFiltro.Location = new System.Drawing.Point(340, 32);
+            this.txtTelefoneFiltro.Mask = "(999) 000-0000";
+            this.txtTelefoneFiltro.Name = "txtTelefoneFiltro";
+            this.txtTelefoneFiltro.Size = new System.Drawing.Size(114, 23);
+            this.txtTelefoneFiltro.TabIndex = 25;
+            // 
+            // lblTelefoneFiltro
+            // 
+            this.lblTelefoneFiltro.AutoSize = true;
+            this.lblTelefoneFiltro.Location = new System.Drawing.Point(340, 14);
+            this.lblTelefoneFiltro.Name = "lblTelefoneFiltro";
+            this.lblTelefoneFiltro.Size = new System.Drawing.Size(51, 15);
+            this.lblTelefoneFiltro.TabIndex = 24;
+            this.lblTelefoneFiltro.Text = "Telefone";
+            // 
+            // txtRGFiltro
+            // 
+            this.txtRGFiltro.Location = new System.Drawing.Point(234, 32);
+            this.txtRGFiltro.Name = "txtRGFiltro";
+            this.txtRGFiltro.Size = new System.Drawing.Size(100, 23);
+            this.txtRGFiltro.TabIndex = 23;
+            // 
+            // lblRGFiltro
+            // 
+            this.lblRGFiltro.AutoSize = true;
+            this.lblRGFiltro.Location = new System.Drawing.Point(231, 14);
+            this.lblRGFiltro.Name = "lblRGFiltro";
+            this.lblRGFiltro.Size = new System.Drawing.Size(22, 15);
+            this.lblRGFiltro.TabIndex = 22;
+            this.lblRGFiltro.Text = "RG";
+            // 
+            // lblNomeFiltro
+            // 
+            this.lblNomeFiltro.AutoSize = true;
+            this.lblNomeFiltro.Location = new System.Drawing.Point(6, 14);
+            this.lblNomeFiltro.Name = "lblNomeFiltro";
+            this.lblNomeFiltro.Size = new System.Drawing.Size(40, 15);
+            this.lblNomeFiltro.TabIndex = 21;
+            this.lblNomeFiltro.Text = "Nome";
+            // 
+            // txtNomeFiltro
+            // 
+            this.txtNomeFiltro.Location = new System.Drawing.Point(6, 32);
+            this.txtNomeFiltro.Name = "txtNomeFiltro";
+            this.txtNomeFiltro.Size = new System.Drawing.Size(222, 23);
+            this.txtNomeFiltro.TabIndex = 20;
+            // 
+            // btnNovoRegistro
+            // 
+            this.btnNovoRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNovoRegistro.Location = new System.Drawing.Point(519, 34);
+            this.btnNovoRegistro.Name = "btnNovoRegistro";
+            this.btnNovoRegistro.Size = new System.Drawing.Size(75, 23);
+            this.btnNovoRegistro.TabIndex = 28;
+            this.btnNovoRegistro.Text = "Novo";
+            this.btnNovoRegistro.UseVisualStyleBackColor = true;
+            // 
+            // btnSair
+            // 
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSair.Location = new System.Drawing.Point(681, 34);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.TabIndex = 27;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcluir.Location = new System.Drawing.Point(600, 34);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 26;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFiltrar.Location = new System.Drawing.Point(678, 32);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.TabIndex = 29;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            // 
+            // check
+            // 
+            this.check.HeaderText = "";
+            this.check.Name = "check";
+            this.check.Width = 40;
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            // 
+            // rg
+            // 
+            this.rg.HeaderText = "RG";
+            this.rg.Name = "rg";
+            // 
+            // telefone
+            // 
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            // 
+            // endereco
+            // 
+            this.endereco.HeaderText = "Endereço";
+            this.endereco.Name = "endereco";
+            // 
+            // numero
+            // 
+            this.numero.HeaderText = "Número";
+            this.numero.Name = "numero";
+            // 
+            // bairro
+            // 
+            this.bairro.HeaderText = "Bairro";
+            this.bairro.Name = "bairro";
+            // 
+            // cidade
+            // 
+            this.cidade.HeaderText = "Cidade";
+            this.cidade.Name = "cidade";
+            // 
+            // uf
+            // 
+            this.uf.HeaderText = "UF";
+            this.uf.Name = "uf";
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.Visible = false;
             // 
             // frmCliente
             // 
@@ -420,10 +597,12 @@ namespace Advocacia
             this.Text = "Cliente";
             this.tabCliente.ResumeLayout(false);
             this.tabListagem.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdListagem)).EndInit();
             this.tabDados.ResumeLayout(false);
             this.tabDados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Clientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -434,23 +613,23 @@ namespace Advocacia
         private System.Windows.Forms.TabPage tabListagem;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdListagem;
         private System.Windows.Forms.TabPage tabDados;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label lblDataNascimento;
-        private System.Windows.Forms.MaskedTextBox mktDataNascimento;
+        private System.Windows.Forms.MaskedTextBox txtDataNascimento;
         private System.Windows.Forms.Label lblRG;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.MaskedTextBox txtRG;
-        private System.Windows.Forms.MaskedTextBox mktTelefone;
+        private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.Label lblTelefone;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblCEP;
-        private System.Windows.Forms.MaskedTextBox mktCEP;
+        private System.Windows.Forms.MaskedTextBox txtCEP;
         private System.Windows.Forms.Label lblEndereco;
         private System.Windows.Forms.TextBox txtEndereco;
         private System.Windows.Forms.Label lblBairro;
@@ -461,6 +640,26 @@ namespace Advocacia
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Label lblCidade;
         private System.Windows.Forms.TextBox txtCidade;
-        private System.Windows.Forms.DataGridView dgv_Clientes;
+        private System.Windows.Forms.MaskedTextBox txtTelefoneFiltro;
+        private System.Windows.Forms.Label lblTelefoneFiltro;
+        private System.Windows.Forms.MaskedTextBox txtRGFiltro;
+        private System.Windows.Forms.Label lblRGFiltro;
+        private System.Windows.Forms.Label lblNomeFiltro;
+        private System.Windows.Forms.TextBox txtNomeFiltro;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.Button btnNovoRegistro;
+        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn check;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endereco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bairro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

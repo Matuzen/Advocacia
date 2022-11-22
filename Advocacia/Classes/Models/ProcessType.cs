@@ -6,7 +6,7 @@ namespace Advocacia.Models
     public class ProcessType
     {
         [Key]
-        public long Id { get; set; }
+        public long? Id { get; set; }
 
         [Required]
         [MaxLength(100)]

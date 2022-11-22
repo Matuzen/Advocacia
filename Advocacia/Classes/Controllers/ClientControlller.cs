@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Advocacia.Models;
 
 namespace Advocacia.Classes.Controllers
@@ -36,8 +37,6 @@ namespace Advocacia.Classes.Controllers
                         
                         cmd.Parameters.Add("@Id", SqlDbType.BigInt);
                         cmd.Parameters["@Id"].Direction = ParameterDirection.Output;
-
-                        con.Open();
                         cmd.ExecuteNonQuery();
 
                         long id = (long)cmd.Parameters["@Id"].Value;
@@ -48,7 +47,11 @@ namespace Advocacia.Classes.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw ex;
+            }
+            finally
+            {
+                Banco.Desconectar();
             }
         }
 
@@ -73,17 +76,77 @@ namespace Advocacia.Classes.Controllers
                         cmd.Parameters.AddWithValue("@City", client.City);
                         cmd.Parameters.AddWithValue("@State", client.State);
                         cmd.Parameters.AddWithValue("@Id", client.Id);
-
-                        con.Open();
                         cmd.ExecuteNonQuery();
                     }
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw ex;
             }
+            finally
+            {
+                Banco.Desconectar();
+            }
+        }
 
+        public void Delete(long id)
+        {
+            try
+            {
+                using (SqlConnection con = Banco.Conectar())
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_delete_client", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Banco.Desconectar();
+            }
+        }
+
+        public void Load(string name,
+                         string rg,
+                         string phone,
+                         ref DataGridView grid)
+        {
+            try
+            {
+                using (SqlConnection con = Banco.Conectar())
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_update_client", con))
+                    {
+                        DataTable dt = new DataTable();
+
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Name", name);
+                        cmd.Parameters.AddWithValue("@RG", rg);
+                        cmd.Parameters.AddWithValue("@Phone", phone);
+
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Banco.Desconectar();
+            }
         }
 
         #endregion

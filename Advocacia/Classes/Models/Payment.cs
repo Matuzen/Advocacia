@@ -10,7 +10,7 @@ namespace Advocacia.Models
     public class Payment
     {
         [Key]
-        public long Id { get; set; }
+        public long? Id { get; set; }
 
         [ForeignKey("Payment_Types")]
         public long Id_Payment_Type { get; set; }
