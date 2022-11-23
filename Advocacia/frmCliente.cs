@@ -13,6 +13,7 @@ namespace Advocacia
 
         Client client = new Client();
         ClientControlller clientControlller = new ClientControlller();
+        string maskPhone = "(   )    -";
 
         #endregion
 
@@ -24,7 +25,26 @@ namespace Advocacia
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Excluir();
+            try
+            {
+                Excluir();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Load();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -41,7 +61,14 @@ namespace Advocacia
         
         private void btnSair_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -231,7 +258,10 @@ namespace Advocacia
         {
             try
             {
-                clientControlller.Load();
+                clientControlller.Load(txtNomeFiltro.Text,
+                                       txtRGFiltro.Text,
+                                       txtTelefoneFiltro.Text.Trim() == maskPhone ? "" : txtTelefoneFiltro.Text,
+                                       grdListagem);
             }
             catch (Exception ex)
             {
@@ -240,6 +270,5 @@ namespace Advocacia
         }
 
         #endregion
-
     }
 }

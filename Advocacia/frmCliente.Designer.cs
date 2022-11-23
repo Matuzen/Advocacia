@@ -32,7 +32,17 @@ namespace Advocacia
             this.tabCliente = new System.Windows.Forms.TabControl();
             this.tabListagem = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.txtTelefoneFiltro = new System.Windows.Forms.MaskedTextBox();
+            this.lblTelefoneFiltro = new System.Windows.Forms.Label();
+            this.txtRGFiltro = new System.Windows.Forms.MaskedTextBox();
+            this.lblRGFiltro = new System.Windows.Forms.Label();
+            this.lblNomeFiltro = new System.Windows.Forms.Label();
+            this.txtNomeFiltro = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnNovoRegistro = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.grdListagem = new System.Windows.Forms.DataGridView();
             this.tabDados = new System.Windows.Forms.TabPage();
             this.cboEstado = new System.Windows.Forms.ComboBox();
@@ -60,27 +70,7 @@ namespace Advocacia
             this.lblRG = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtTelefoneFiltro = new System.Windows.Forms.MaskedTextBox();
-            this.lblTelefoneFiltro = new System.Windows.Forms.Label();
-            this.txtRGFiltro = new System.Windows.Forms.MaskedTextBox();
-            this.lblRGFiltro = new System.Windows.Forms.Label();
-            this.lblNomeFiltro = new System.Windows.Forms.Label();
-            this.txtNomeFiltro = new System.Windows.Forms.TextBox();
-            this.btnNovoRegistro = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnFiltrar = new System.Windows.Forms.Button();
             this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCliente.SuspendLayout();
             this.tabListagem.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -127,6 +117,66 @@ namespace Advocacia
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFiltrar.Location = new System.Drawing.Point(678, 32);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.TabIndex = 29;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // txtTelefoneFiltro
+            // 
+            this.txtTelefoneFiltro.Location = new System.Drawing.Point(340, 32);
+            this.txtTelefoneFiltro.Mask = "(999) 000-0000";
+            this.txtTelefoneFiltro.Name = "txtTelefoneFiltro";
+            this.txtTelefoneFiltro.Size = new System.Drawing.Size(114, 23);
+            this.txtTelefoneFiltro.TabIndex = 25;
+            // 
+            // lblTelefoneFiltro
+            // 
+            this.lblTelefoneFiltro.AutoSize = true;
+            this.lblTelefoneFiltro.Location = new System.Drawing.Point(340, 14);
+            this.lblTelefoneFiltro.Name = "lblTelefoneFiltro";
+            this.lblTelefoneFiltro.Size = new System.Drawing.Size(51, 15);
+            this.lblTelefoneFiltro.TabIndex = 24;
+            this.lblTelefoneFiltro.Text = "Telefone";
+            // 
+            // txtRGFiltro
+            // 
+            this.txtRGFiltro.Location = new System.Drawing.Point(234, 32);
+            this.txtRGFiltro.Name = "txtRGFiltro";
+            this.txtRGFiltro.Size = new System.Drawing.Size(100, 23);
+            this.txtRGFiltro.TabIndex = 23;
+            // 
+            // lblRGFiltro
+            // 
+            this.lblRGFiltro.AutoSize = true;
+            this.lblRGFiltro.Location = new System.Drawing.Point(231, 14);
+            this.lblRGFiltro.Name = "lblRGFiltro";
+            this.lblRGFiltro.Size = new System.Drawing.Size(22, 15);
+            this.lblRGFiltro.TabIndex = 22;
+            this.lblRGFiltro.Text = "RG";
+            // 
+            // lblNomeFiltro
+            // 
+            this.lblNomeFiltro.AutoSize = true;
+            this.lblNomeFiltro.Location = new System.Drawing.Point(6, 14);
+            this.lblNomeFiltro.Name = "lblNomeFiltro";
+            this.lblNomeFiltro.Size = new System.Drawing.Size(40, 15);
+            this.lblNomeFiltro.TabIndex = 21;
+            this.lblNomeFiltro.Text = "Nome";
+            // 
+            // txtNomeFiltro
+            // 
+            this.txtNomeFiltro.Location = new System.Drawing.Point(6, 32);
+            this.txtNomeFiltro.Name = "txtNomeFiltro";
+            this.txtNomeFiltro.Size = new System.Drawing.Size(222, 23);
+            this.txtNomeFiltro.TabIndex = 20;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnNovoRegistro);
@@ -138,21 +188,43 @@ namespace Advocacia
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // btnNovoRegistro
+            // 
+            this.btnNovoRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNovoRegistro.Location = new System.Drawing.Point(519, 34);
+            this.btnNovoRegistro.Name = "btnNovoRegistro";
+            this.btnNovoRegistro.Size = new System.Drawing.Size(75, 23);
+            this.btnNovoRegistro.TabIndex = 28;
+            this.btnNovoRegistro.Text = "Novo";
+            this.btnNovoRegistro.UseVisualStyleBackColor = true;
+            // 
+            // btnSair
+            // 
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSair.Location = new System.Drawing.Point(681, 34);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.TabIndex = 27;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcluir.Location = new System.Drawing.Point(600, 34);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 26;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // grdListagem
             // 
             this.grdListagem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdListagem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.check,
-            this.nome,
-            this.rg,
-            this.telefone,
-            this.email,
-            this.endereco,
-            this.numero,
-            this.bairro,
-            this.cidade,
-            this.uf,
-            this.id});
+            this.check});
             this.grdListagem.Location = new System.Drawing.Point(6, 88);
             this.grdListagem.Name = "grdListagem";
             this.grdListagem.RowTemplate.Height = 25;
@@ -436,153 +508,11 @@ namespace Advocacia
             this.txtNome.Size = new System.Drawing.Size(222, 23);
             this.txtNome.TabIndex = 0;
             // 
-            // txtTelefoneFiltro
-            // 
-            this.txtTelefoneFiltro.Location = new System.Drawing.Point(340, 32);
-            this.txtTelefoneFiltro.Mask = "(999) 000-0000";
-            this.txtTelefoneFiltro.Name = "txtTelefoneFiltro";
-            this.txtTelefoneFiltro.Size = new System.Drawing.Size(114, 23);
-            this.txtTelefoneFiltro.TabIndex = 25;
-            // 
-            // lblTelefoneFiltro
-            // 
-            this.lblTelefoneFiltro.AutoSize = true;
-            this.lblTelefoneFiltro.Location = new System.Drawing.Point(340, 14);
-            this.lblTelefoneFiltro.Name = "lblTelefoneFiltro";
-            this.lblTelefoneFiltro.Size = new System.Drawing.Size(51, 15);
-            this.lblTelefoneFiltro.TabIndex = 24;
-            this.lblTelefoneFiltro.Text = "Telefone";
-            // 
-            // txtRGFiltro
-            // 
-            this.txtRGFiltro.Location = new System.Drawing.Point(234, 32);
-            this.txtRGFiltro.Name = "txtRGFiltro";
-            this.txtRGFiltro.Size = new System.Drawing.Size(100, 23);
-            this.txtRGFiltro.TabIndex = 23;
-            // 
-            // lblRGFiltro
-            // 
-            this.lblRGFiltro.AutoSize = true;
-            this.lblRGFiltro.Location = new System.Drawing.Point(231, 14);
-            this.lblRGFiltro.Name = "lblRGFiltro";
-            this.lblRGFiltro.Size = new System.Drawing.Size(22, 15);
-            this.lblRGFiltro.TabIndex = 22;
-            this.lblRGFiltro.Text = "RG";
-            // 
-            // lblNomeFiltro
-            // 
-            this.lblNomeFiltro.AutoSize = true;
-            this.lblNomeFiltro.Location = new System.Drawing.Point(6, 14);
-            this.lblNomeFiltro.Name = "lblNomeFiltro";
-            this.lblNomeFiltro.Size = new System.Drawing.Size(40, 15);
-            this.lblNomeFiltro.TabIndex = 21;
-            this.lblNomeFiltro.Text = "Nome";
-            // 
-            // txtNomeFiltro
-            // 
-            this.txtNomeFiltro.Location = new System.Drawing.Point(6, 32);
-            this.txtNomeFiltro.Name = "txtNomeFiltro";
-            this.txtNomeFiltro.Size = new System.Drawing.Size(222, 23);
-            this.txtNomeFiltro.TabIndex = 20;
-            // 
-            // btnNovoRegistro
-            // 
-            this.btnNovoRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNovoRegistro.Location = new System.Drawing.Point(519, 34);
-            this.btnNovoRegistro.Name = "btnNovoRegistro";
-            this.btnNovoRegistro.Size = new System.Drawing.Size(75, 23);
-            this.btnNovoRegistro.TabIndex = 28;
-            this.btnNovoRegistro.Text = "Novo";
-            this.btnNovoRegistro.UseVisualStyleBackColor = true;
-            // 
-            // btnSair
-            // 
-            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSair.Location = new System.Drawing.Point(681, 34);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 23);
-            this.btnSair.TabIndex = 27;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExcluir.Location = new System.Drawing.Point(600, 34);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 26;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFiltrar.Location = new System.Drawing.Point(678, 32);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
-            this.btnFiltrar.TabIndex = 29;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            // 
             // check
             // 
             this.check.HeaderText = "";
             this.check.Name = "check";
             this.check.Width = 40;
-            // 
-            // nome
-            // 
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            // 
-            // rg
-            // 
-            this.rg.HeaderText = "RG";
-            this.rg.Name = "rg";
-            // 
-            // telefone
-            // 
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            // 
-            // email
-            // 
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            // 
-            // endereco
-            // 
-            this.endereco.HeaderText = "Endereço";
-            this.endereco.Name = "endereco";
-            // 
-            // numero
-            // 
-            this.numero.HeaderText = "Número";
-            this.numero.Name = "numero";
-            // 
-            // bairro
-            // 
-            this.bairro.HeaderText = "Bairro";
-            this.bairro.Name = "bairro";
-            // 
-            // cidade
-            // 
-            this.cidade.HeaderText = "Cidade";
-            this.cidade.Name = "cidade";
-            // 
-            // uf
-            // 
-            this.uf.HeaderText = "UF";
-            this.uf.Name = "uf";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.Visible = false;
             // 
             // frmCliente
             // 
@@ -651,15 +581,5 @@ namespace Advocacia
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.DataGridViewCheckBoxColumn check;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn endereco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bairro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

@@ -117,25 +117,26 @@ namespace Advocacia.Classes.Controllers
         public void Load(string name,
                          string rg,
                          string phone,
-                         ref DataGridView grid)
+                         DataGridView grid)
         {
             try
             {
                 using (SqlConnection con = Banco.Conectar())
                 {
-                    using (SqlCommand cmd = new SqlCommand("sp_update_client", con))
+                    using (SqlCommand cmd = new SqlCommand("sp_select_client", con))
                     {
                         DataTable dt = new DataTable();
 
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Name", name);
-                        cmd.Parameters.AddWithValue("@RG", rg);
-                        cmd.Parameters.AddWithValue("@Phone", phone);
+                        cmd.Parameters.AddWithValue("@Name", name == "" ? "" : name);
+                        cmd.Parameters.AddWithValue("@RG", rg == "" ? "" : rg);
+                        cmd.Parameters.AddWithValue("@Phone", phone == "" ? "" : phone);
 
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         da.Fill(dt);
 
                         grid.DataSource = dt;
+                        grid.Columns["Id"].Visible = false;
                     }
                 }
             }
